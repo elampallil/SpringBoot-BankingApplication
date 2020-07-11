@@ -13,6 +13,7 @@ import javax.mail.MessagingException;
 import java.io.IOException;
 
 @RestController
+//@CrossOrigin(origins = "*")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -22,6 +23,7 @@ public class UserController {
         return userService.userDataSave(createUserRequest);
     }
 
+//    @CrossOrigin("*")
     @RequestMapping(value = "/user/details/{accountNumber}", method = RequestMethod.GET)
     public ResponseBody getUserDetails(@PathVariable int accountNumber) {
         UserDetailsAggregate userDetailsAggregate = userService.getUserDetails(accountNumber);
